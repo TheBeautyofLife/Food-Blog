@@ -4,14 +4,25 @@
   "description": "cloudinary upload",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js --watch server"
   },
-  "author": "chike",
+  "author": "theBeautyofLife",
   "license": "ISC",
   "dependencies": {
-    "cloudinary": "^1.13.2",
+    "cloudinary": "^1.14.0",
+    "connect-multiparty": "^2.2.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.1.0",
     "express": "^4.16.4",
     "mongoose": "^5.4.14",
-    "multer": "^1.4.1"
+    "morgan": "^1.9.1",
+    "multer": "^1.4.1",
+    "nodemailer": "^6.3.0",
+    "nodemailer-sendgrid-transport": "^0.2.0",
+    "nodemon": "^1.19.1"
+  },
+  "devDependencies": {
+    "vue-cli-plugin-vuetify": "^0.6.3"
   }
 }
