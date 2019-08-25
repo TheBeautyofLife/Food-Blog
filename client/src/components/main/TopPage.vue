@@ -10,9 +10,9 @@
                 {{ sitetitle }}
                </div>
               </v-card-text>
-             
-                
-              
+
+
+
               <v-card-actions >
                <v-dialog
                 v-model="dialog"
@@ -24,7 +24,7 @@
                 Get Started
               </v-btn>
               </template>
-              
+
               <v-card>
                 span.headline
               </v-card>
