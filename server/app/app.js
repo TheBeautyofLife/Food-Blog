@@ -12,7 +12,7 @@ const nodemailer = require('nodemailer')
 const multipart = require('connect-multiparty')
 
 //IMPORTING ROUTES
-const cloudiRouter = require('../routes/userRoutes')
+const cloudiRouter = require('../../routes/userRoutes')
 
 const mongoose = require('mongoose')
 mongoose.Promise = require('bluebird')
@@ -95,8 +95,8 @@ app.post("/sendmail", multipartMiddleware, function (req, res) {
 let mongopass = process.env.MONGODB_PASS
 let mongouser = process.env.MONGODB_USER
 
-const url =
-    'mongodb://' + mongouser + ':' + mongopass + '@cluster0-shard-00-00-f0pmg.mongodb.net:27017,cluster0-shard-00-01-f0pmg.mongodb.net:27017,cluster0-shard-00-02-f0pmg.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority'
+const url = 'mongodb+srv://alero:' + mongopass + '@cluster0-f0pmg.mongodb.net/test?retryWrites=true&w=majority'
+
 mongoose.connect(url, {
     useNewUrlParser: true
 })

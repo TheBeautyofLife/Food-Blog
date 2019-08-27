@@ -1,5 +1,5 @@
 var http = require('http');
-var app = require('./app/app')
+var app = require('./server/app/app')
 
 const port = process.env.PORT || 4000;
 

@@ -103,6 +103,8 @@
 import axios from "axios"
 import qs from "qs"
 
+const url = "/api";
+
 export default {
   /* eslint-disable */
   data() {
@@ -183,11 +185,11 @@ export default {
       console.log('email', userEmail)
 
     /* function postRecords() {
-      return axios.post("http://localhost:4000/uploads/post", formData)
+      return axios.post("/uploads/post", formData)
     } */
 
     function emailRecipient() {
-       return axios.post("http://localhost:4000/sendmail",
+       return axios.post("/sendmail",
        {headers: { 'content-type': 'application/x-www-form-urlencoded' }},
        qs.stringify({ 'email': userEmail }))
     }
