@@ -11,26 +11,12 @@
                </div>
               </v-card-text>
 
-
-
               <v-card-actions >
-               <v-dialog
-                v-model="dialog"
-                persistent
-                max-width="500px"
-              >
-                <template v-slot:activator="{ on }">
+                <router-link to='/form' style="text-decoration:none;">
                   <v-btn x-large rounded  dark color="red darken-3" class="title text-capitalized" style="width:200px;" v-on="on">
-                Get Started
-              </v-btn>
-              </template>
-
-              <v-card>
-                span.headline
-              </v-card>
-              </v-dialog>
-
-
+                    Get Started
+                  </v-btn>
+             </router-link>
               </v-card-actions>
             </v-layout>
           </v-card>

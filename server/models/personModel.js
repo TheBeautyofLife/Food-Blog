@@ -1,10 +1,10 @@
 const mongoose = require('mongoose')
 
 const formUpload = mongoose.Schema({
-    firstName: {
+    firstname: {
         type: String
     },
-    lastName: {
+    lastname: {
         type: String
     },
     email: {

@@ -3,32 +3,31 @@ const cloud = require('../config/cloudinaryConfig')
 
 
 exports.createApp = (req, res) => {
-    try{
+    try {
         const personDetails = {
-            firstName: req.body.firstName,
-            lastName: req.body.lastName,
+            firstname: req.body.firstname,
+            lastname: req.body.lastname,
             email: req.body.email,
         }
-
         personModel.find({
-            firstName: personDetails.fastName,
-            lastName: personDetails.lastName,
+            firstname: personDetails.fastname,
+            lastname: personDetails.lastname,
             email: personDetails.email
-        }, (err, callback) => {
+             }, (err, callback) => {
             if (err) {
                 console.log(err)
                 res.json({
                     err: err,
                     message: 'there was a problem uploading image'
                 })
-            } else if(callback.length >= 1 ) {
+            } else if (callback.length >= 1) {
                 res.json({
                     message: 'file already exist'
                 })
-            }else {
+            } else {
                 const personDetails = {
-                    firstName: req.body.firstName,
-                    lastName: req.body.lastName,
+                    firstname: req.body.firstname,
+                    lastname: req.body.lastname,
                     email: req.body.email,
                     cloudImage: req.files[0].path,
                     cloudFile: req.files[0].path,
@@ -39,37 +38,36 @@ exports.createApp = (req, res) => {
                 cloud.uploads(personDetails.cloudImage, personDetails.cloudFile).then((result) => {
                     console.log(result)
                     const personDetails = {
-                        firstName: req.body.firstName,
-                        lastName: req.body.lastName,
+                        firstname: req.body.firstname,
+                        lastname: req.body.lastname,
                         email: req.body.email,
                         cloudImage: result.url,
                         cloudFile: result.url,
                         personId: result.id
                     }
-                        console.log('.!.')
-                        console.log(personDetails.cloudImage)
-                        console.log(personDetails.cloudFile)
-                        
-                        personModel.create(personDetails, (err, created)=> {
-                        if(err){
-                            res.json({
-                                err: err,
-                                message: 'could not upload files, try again'
+                    console.log('.!.')
+                    console.log(personDetails.cloudImage, personDetails.cloudFile)
+
+                personModel.create(personDetails, (err, created) => {
+                    if (err) {
+                        res.json({
+                             err: err,
+                            message: 'could not upload files, try again'
                             })
-                        }else {
+                        } else {
                             res.json({
                                 created: created,
                                 message: "files uploaded successfully!!"
                             })
                         }
                     })
-                    
-                    
                 })
-        
+
             }
         });
-    }catch(execptions){
+
+        
+    } catch (execptions) {
         console.log(execptions)
     }
 

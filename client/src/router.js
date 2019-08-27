@@ -23,6 +23,11 @@ export default new Router({
       path: '/menu/:Pid',
       name: 'menu',
       component: Menu
-    }
+    },
+     {
+      path: '/form',
+      name: 'form',
+      component: () => import('./views/Form.vue')
+    },
   ]
 })

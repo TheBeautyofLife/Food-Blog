@@ -6,18 +6,18 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon server.js --watch server",
-    "start": "node server.js",
-   
+    "start": "node server.js"
   },
   "author": "theBeautyofLife",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
+    "@sendgrid/mail": "^6.4.0",
     "cloudinary": "^1.14.0",
     "connect-multiparty": "^2.2.0",
     "cors": "^2.8.5",
     "dotenv": "^8.1.0",
     "express": "^4.16.4",
-    "mongoose": "^5.4.14",
+    "mongoose": "^5.6.11",
     "morgan": "^1.9.1",
     "multer": "^1.4.1",
     "nodemailer": "^6.3.0",

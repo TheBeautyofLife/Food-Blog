@@ -3,6 +3,6 @@ const fileController = require('../controllers/fileController');
 const upload = require('../cloudinaryUploads/multer')
 const router = express.Router()
 
-router.post('/postForm', upload.any(), fileController.createApp)
+router.post('/post', upload.any(), fileController.createApp)
 
 module.exports = router

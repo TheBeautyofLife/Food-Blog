@@ -1,1 +1,0 @@
-This is the file where all the images and the CV's will be stored.
