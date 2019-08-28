@@ -76,14 +76,16 @@
               <v-flex xs12 sm8 md6 class="justify-center">
                 <v-card-actions>
                   <v-spacer></v-spacer>
-                  <v-btn
-                    :disabled="!valid"
-                    text
-                    color="red lighten-1"
-                    v-on="on"
-                    @click="submitForm()"
-                    dark
-                  >Apply</v-btn>
+                  <router-link to="/form/welcome" class="link">
+                <v-btn
+                  :disabled="dialog"
+                  text
+                  color="red lighten-1"
+                  v-on="on"
+                  @click="submitForm()"
+                  dark
+                >Apply</v-btn>
+                </router-link>
                 </v-card-actions>
               </v-flex>
             </v-layout>
@@ -102,8 +104,6 @@
 <script>
 import axios from "axios"
 import qs from "qs"
-
-const url = "/api";
 
 export default {
   /* eslint-disable */
@@ -184,21 +184,27 @@ export default {
       let userEmail = this.email
       console.log('email', userEmail)
 
-    /* function postRecords() {
-      return axios.post("/uploads/post", formData)
-    } */
-
-    function emailRecipient() {
-       return axios.post("/sendmail",
+      /* function emailRecipient() {
+       return axios.post("http://localhost:4000/sendmail",
        {headers: { 'content-type': 'application/x-www-form-urlencoded' }},
        qs.stringify({ 'email': userEmail }))
-    }
+      } */
 
-      axios.all([ emailRecipient() ])
-        .then(axios.spread(function(res1) {
-          //
-      }))
-    }
+     axios.post('http://localhost:4000/uploads/post', formData)
+     .then(function (res) {
+       //
+     })
+     .catch(function (err) {
+       console.log("error", err)
+     })
+    },
   }
-};
+}
 </script>
+
+<style scoped>
+.link {
+  text-decoration: none;
+}
+</style>
+

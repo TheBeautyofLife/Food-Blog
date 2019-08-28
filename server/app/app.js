@@ -12,7 +12,7 @@ const nodemailer = require('nodemailer')
 const multipart = require('connect-multiparty')
 
 //IMPORTING ROUTES
-const cloudiRouter = require('../../routes/userRoutes')
+const cloudiRouter = require('../routes/userRoutes')
 
 const mongoose = require('mongoose')
 mongoose.Promise = require('bluebird')
@@ -34,16 +34,16 @@ const multipartMiddleware = multipart()
 
 // Creating the nodemailer
 const transporter = nodemailer.createTransport({
-    //service: 'SendGrid',
-    host: "smtp.mailtrap.io",
-    port: 2525,
-    // host: "smtp.sendgrid.net",
-    // port: 587,
+    service: 'SendGrid',
+    // host: "smtp.mailtrap.io",
+    // port: 2525,
+    host: "smtp.sendgrid.net",
+    port: 587,
     auth: {
-        user: "f731df9789ba39",
-        pass: "e770d763bf4ad5"
-        /*user: process.env.SENDGRID_USERNAME,
-        pass: process.env.SENDGRID_PASSWORD */
+        /*user: "f731df9789ba39",
+        pass: "e770d763bf4ad5"*/
+        user: process.env.SENDGRID_USERNAME,
+        pass: process.env.SENDGRID_PASSWORD 
     }
 });
 

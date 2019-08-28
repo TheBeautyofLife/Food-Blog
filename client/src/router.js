@@ -24,10 +24,15 @@ export default new Router({
       name: 'menu',
       component: Menu
     },
-     {
+    {
       path: '/form',
       name: 'form',
       component: () => import('./views/Form.vue')
     },
+    {
+      path: '/form/welcome',
+      name: 'welcome',
+      component: () => import('./views/Welcome.vue')
+    }
   ]
 })
