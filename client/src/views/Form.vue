@@ -173,7 +173,7 @@ export default {
         console.log("not posted");
       }
     },
-    submitForm() {
+    async submitForm() {
       let formData = new FormData();
       formData.append("image", this.cloudImage);
       formData.append("doc", this.cloudFile);
@@ -189,14 +189,12 @@ export default {
        {headers: { 'content-type': 'application/x-www-form-urlencoded' }},
        qs.stringify({ 'email': userEmail }))
       } */
+    try {
+      await axios.post('http://localhost:4000/uploads/post', formData)
 
-     axios.post('http://localhost:4000/uploads/post', formData)
-     .then(function (res) {
-       //
-     })
-     .catch(function (err) {
+     } catch(err) {
        console.log("error", err)
-     })
+     }
     },
   }
 }

@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
 import Menu from './views/Menu.vue'
+import Blog from './views/Blog'
 
 Vue.use(Router)
 
@@ -33,6 +34,18 @@ export default new Router({
       path: '/form/welcome',
       name: 'welcome',
       component: () => import('./views/Welcome.vue')
+    },
+    {
+      path: '/blog',
+      name: 'view all blogs',
+      component: Blog
+    },
+
+    // Auth
+    {
+      path: '/user',
+      name: 'auth',
+      component: () => import('./views/user/index.vue')
     }
   ]
 })
